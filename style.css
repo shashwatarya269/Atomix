@@ -343,7 +343,7 @@ h2 {
     justify-content: center;
     align-items: center;
 
-    overflow: hidden;
+    overflow: visible;
 
     border-radius: 50%;
 }

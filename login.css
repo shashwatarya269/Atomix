@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top, #123b5d, #020612);
+    color: white;
+}
+
+.login-container {
+    width: 90%;
+    max-width: 420px;
+    padding: 35px;
+    background: rgba(5, 18, 35, 0.95);
+    border: 1px solid rgba(0, 191, 255, 0.4);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
+    text-align: center;
+}
+
+.logo {
+    font-size: 55px;
+    margin-bottom: 5px;
+}
+
+h1 {
+    font-size: 36px;
+    margin-bottom: 5px;
+}
+
+.subtitle {
+    color: #9fc7df;
+    margin-bottom: 30px;
+}
+
+.input-box {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.input-box label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b9dff5;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #245a78;
+    border-radius: 10px;
+    background: #071525;
+    color: white;
+    outline: none;
+    font-size: 15px;
+}
+
+.input-box input:focus {
+    border-color: #00bfff;
+    box-shadow: 0 0 10px rgba(0, 191, 255, 0.25);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    background: #00bfff;
+    color: #00111c;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0 0 18px rgba(0, 191, 255, 0.5);
+}
+
+#message {
+    margin-top: 18px;
+    color: #5cff9d;
+    min-height: 20px;
+}
+
+.signup-text {
+    margin-top: 25px;
+    color: #9fc7df;
+}
+
+.signup-text a {
+    color: #00bfff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 20px;
+    color: #8ecae6;
+    text-decoration: none;
+}
+
+.back:hover,
+.signup-text a:hover {
+    text-decoration: underline;
+}
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 50px;
+}
+
+.show-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    
+    font-size: 18px;
+    padding: 0;
+    width: auto;
+}

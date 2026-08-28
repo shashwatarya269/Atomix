@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Atomix</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>⚛️ Atomix</h1>
+    <p>Explore the world of elements</p>
+
+    <a href="login.html" class="login-button">🔐 Login</a>
+</header>
+
+
+<main>
+
+    <!-- =========================================
+         TABLE + ATOM MAIN AREA
+    ========================================== -->
+
+    <section class="atom-section">
+
+        <!-- =====================================
+             PERIODIC TABLE
+        ====================================== -->
+
+        <div class="periodic-box">
+
+            <h2>🔬 Periodic Table</h2>
+
+            <div class="periodic-table">
+
+                <!-- PERIOD 1 -->
+                <button style="grid-column:1" onclick="showElement('H')">H</button>
+                <button style="grid-column:18" onclick="showElement('He')">He</button>
+
+                <!-- PERIOD 2 -->
+                <button style="grid-column:1" onclick="showElement('Li')">Li</button>
+                <button style="grid-column:2" onclick="showElement('Be')">Be</button>
+                <button style="grid-column:13" onclick="showElement('B')">B</button>
+                <button style="grid-column:14" onclick="showElement('C')">C</button>
+                <button style="grid-column:15" onclick="showElement('N')">N</button>
+                <button style="grid-column:16" onclick="showElement('O')">O</button>
+                <button style="grid-column:17" onclick="showElement('F')">F</button>
+                <button style="grid-column:18" onclick="showElement('Ne')">Ne</button>
+
+                <!-- PERIOD 3 -->
+                <button style="grid-column:1" onclick="showElement('Na')">Na</button>
+                <button style="grid-column:2" onclick="showElement('Mg')">Mg</button>
+                <button style="grid-column:13" onclick="showElement('Al')">Al</button>
+                <button style="grid-column:14" onclick="showElement('Si')">Si</button>
+                <button style="grid-column:15" onclick="showElement('P')">P</button>
+                <button style="grid-column:16" onclick="showElement('S')">S</button>
+                <button style="grid-column:17" onclick="showElement('Cl')">Cl</button>
+                <button style="grid-column:18" onclick="showElement('Ar')">Ar</button>
+
+                <!-- PERIOD 4 -->
+                <button style="grid-column:1" onclick="showElement('K')">K</button>
+                <button style="grid-column:2" onclick="showElement('Ca')">Ca</button>
+                <button style="grid-column:3" onclick="showElement('Sc')">Sc</button>
+                <button style="grid-column:4" onclick="showElement('Ti')">Ti</button>
+                <button style="grid-column:5" onclick="showElement('V')">V</button>
+                <button style="grid-column:6" onclick="showElement('Cr')">Cr</button>
+                <button style="grid-column:7" onclick="showElement('Mn')">Mn</button>
+                <button style="grid-column:8" onclick="showElement('Fe')">Fe</button>
+                <button style="grid-column:9" onclick="showElement('Co')">Co</button>
+                <button style="grid-column:10" onclick="showElement('Ni')">Ni</button>
+                <button style="grid-column:11" onclick="showElement('Cu')">Cu</button>
+                <button style="grid-column:12" onclick="showElement('Zn')">Zn</button>
+                <button style="grid-column:13" onclick="showElement('Ga')">Ga</button>
+                <button style="grid-column:14" onclick="showElement('Ge')">Ge</button>
+                <button style="grid-column:15" onclick="showElement('As')">As</button>
+                <button style="grid-column:16" onclick="showElement('Se')">Se</button>
+                <button style="grid-column:17" onclick="showElement('Br')">Br</button>
+                <button style="grid-column:18" onclick="showElement('Kr')">Kr</button>
+
+                <!-- PERIOD 5 -->
+                <button style="grid-column:1" onclick="showElement('Rb')">Rb</button>
+                <button style="grid-column:2" onclick="showElement('Sr')">Sr</button>
+                <button style="grid-column:3" onclick="showElement('Y')">Y</button>
+                <button style="grid-column:4" onclick="showElement('Zr')">Zr</button>
+                <button style="grid-column:5" onclick="showElement('Nb')">Nb</button>
+                <button style="grid-column:6" onclick="showElement('Mo')">Mo</button>
+                <button style="grid-column:7" onclick="showElement('Tc')">Tc</button>
+                <button style="grid-column:8" onclick="showElement('Ru')">Ru</button>
+                <button style="grid-column:9" onclick="showElement('Rh')">Rh</button>
+                <button style="grid-column:10" onclick="showElement('Pd')">Pd</button>
+                <button style="grid-column:11" onclick="showElement('Ag')">Ag</button>
+                <button style="grid-column:12" onclick="showElement('Cd')">Cd</button>
+                <button style="grid-column:13" onclick="showElement('In')">In</button>
+                <button style="grid-column:14" onclick="showElement('Sn')">Sn</button>
+                <button style="grid-column:15" onclick="showElement('Sb')">Sb</button>
+                <button style="grid-column:16" onclick="showElement('Te')">Te</button>
+                <button style="grid-column:17" onclick="showElement('I')">I</button>
+                <button style="grid-column:18" onclick="showElement('Xe')">Xe</button>
+
+                <!-- PERIOD 6 -->
+                <button style="grid-column:1" onclick="showElement('Cs')">Cs</button>
+                <button style="grid-column:2" onclick="showElement('Ba')">Ba</button>
+                <button style="grid-column:3" onclick="showElement('La')">57-71</button>
+                <button style="grid-column:4" onclick="showElement('Hf')">Hf</button>
+                <button style="grid-column:5" onclick="showElement('Ta')">Ta</button>
+                <button style="grid-column:6" onclick="showElement('W')">W</button>
+                <button style="grid-column:7" onclick="showElement('Re')">Re</button>
+                <button style="grid-column:8" onclick="showElement('Os')">Os</button>
+                <button style="grid-column:9" onclick="showElement('Ir')">Ir</button>
+                <button style="grid-column:10" onclick="showElement('Pt')">Pt</button>
+                <button style="grid-column:11" onclick="showElement('Au')">Au</button>
+                <button style="grid-column:12" onclick="showElement('Hg')">Hg</button>
+                <button style="grid-column:13" onclick="showElement('Tl')">Tl</button>
+                <button style="grid-column:14" onclick="showElement('Pb')">Pb</button>
+                <button style="grid-column:15" onclick="showElement('Bi')">Bi</button>
+                <button style="grid-column:16" onclick="showElement('Po')">Po</button>
+                <button style="grid-column:17" onclick="showElement('At')">At</button>
+                <button style="grid-column:18" onclick="showElement('Rn')">Rn</button>
+
+                <!-- PERIOD 7 -->
+                <button style="grid-column:1" onclick="showElement('Fr')">Fr</button>
+                <button style="grid-column:2" onclick="showElement('Ra')">Ra</button>
+                <button style="grid-column:3" onclick="showElement('Ac')">89-103</button>
+                <button style="grid-column:4" onclick="showElement('Rf')">Rf</button>
+                <button style="grid-column:5" onclick="showElement('Db')">Db</button>
+                <button style="grid-column:6" onclick="showElement('Sg')">Sg</button>
+                <button style="grid-column:7" onclick="showElement('Bh')">Bh</button>
+                <button style="grid-column:8" onclick="showElement('Hs')">Hs</button>
+                <button style="grid-column:9" onclick="showElement('Mt')">Mt</button>
+                <button style="grid-column:10" onclick="showElement('Ds')">Ds</button>
+                <button style="grid-column:11" onclick="showElement('Rg')">Rg</button>
+                <button style="grid-column:12" onclick="showElement('Cn')">Cn</button>
+                <button style="grid-column:13" onclick="showElement('Nh')">Nh</button>
+                <button style="grid-column:14" onclick="showElement('Fl')">Fl</button>
+                <button style="grid-column:15" onclick="showElement('Mc')">Mc</button>
+                <button style="grid-column:16" onclick="showElement('Lv')">Lv</button>
+                <button style="grid-column:17" onclick="showElement('Ts')">Ts</button>
+                <button style="grid-column:18" onclick="showElement('Og')">Og</button>
+              
+                <!-- GAP BEFORE LANTHANIDES -->
+                <div class="series-gap"></div>
+<!-- LANTHANIDES -->
+
+<div style="grid-column: 1 / 19; height: 30px;"></div>
+
+<div style="grid-column: 1 / 19; text-align: left; color: #00d9ff; font-weight: bold; margin-bottom: 5px;">
+    Lanthanides
+</div>
+
+<div style="grid-column: 1 / 4;"></div>
+
+<button onclick="showElement('La')">La</button>
+<button onclick="showElement('Ce')">Ce</button>
+<button onclick="showElement('Pr')">Pr</button>
+<button onclick="showElement('Nd')">Nd</button>
+<button onclick="showElement('Pm')">Pm</button>
+<button onclick="showElement('Sm')">Sm</button>
+<button onclick="showElement('Eu')">Eu</button>
+<button onclick="showElement('Gd')">Gd</button>
+<button onclick="showElement('Tb')">Tb</button>
+<button onclick="showElement('Dy')">Dy</button>
+<button onclick="showElement('Ho')">Ho</button>
+<button onclick="showElement('Er')">Er</button>
+<button onclick="showElement('Tm')">Tm</button>
+<button onclick="showElement('Yb')">Yb</button>
+<button onclick="showElement('Lu')">Lu</button>
+
+
+<!-- ACTINIDES -->
+
+<div style="grid-column: 1 / 19; text-align: left; color: #00d9ff; font-weight: bold; margin-top: 0;">
+    Actinides
+</div>
+
+<div style="grid-column: 1 / 4;"></div>
+
+<button onclick="showElement('Ac')">Ac</button>
+<button onclick="showElement('Th')">Th</button>
+<button onclick="showElement('Pa')">Pa</button>
+<button onclick="showElement('U')">U</button>
+<button onclick="showElement('Np')">Np</button>
+<button onclick="showElement('Pu')">Pu</button>
+<button onclick="showElement('Am')">Am</button>
+<button onclick="showElement('Cm')">Cm</button>
+<button onclick="showElement('Bk')">Bk</button>
+<button onclick="showElement('Cf')">Cf</button>
+<button onclick="showElement('Es')">Es</button>
+<button onclick="showElement('Fm')">Fm</button>
+<button onclick="showElement('Md')">Md</button>
+<button onclick="showElement('No')">No</button>
+<button onclick="showElement('Lr')">Lr</button>
+
+      
+     </div>
+            
+        </div>
+
+
+        <!-- =====================================
+             ATOM + INFORMATION
+        ====================================== -->
+
+        <div class="atom-box">
+
+            <h2>⚛️ Atom</h2>
+
+            <!-- 2D ATOM -->
+            <div class="atom-2d">
+
+                <div class="nucleus-2d">
+                    <span>⚛️</span>
+                </div>
+
+                <div id="electronShells"></div>
+
+            </div>
+
+
+            <!-- ELEMENT NAME / SYMBOL -->
+            <div class="atom-label">
+
+                <h3 id="elementSymbolText"></h3>
+
+            </div>
+
+<!-- ELECTRON DISTRIBUTION -->
+<div class="electron-distribution">
+
+    <h3>⚡ Electron Distribution</h3>
+
+    <p id="electronDistribution">
+        Select an element to see its electron distribution.
+    </p>
+
+</div>
+
+            <!-- ELEMENT INFORMATION + DESCRIPTION -->
+            <section class="info-box">
+
+                <h2 id="elementName">
+                    Welcome to Atomix ⚛️
+                </h2>
+
+                <p id="elementDescription">
+                    Select an element from the periodic table to explore it.
+                </p>
+
+                <div class="particles">
+
+                    <p>
+                        🔢 Atomic Number:
+                        <strong id="atomicNumber">-</strong>
+                    </p>
+
+                    <p>
+                        ⚖️ Atomic Mass:
+                        <strong id="atomicMass">-</strong>
+                    </p>
+
+                    <p>
+                        🔴 Protons:
+                        <strong id="protons">-</strong>
+                    </p>
+
+                    <p>
+                        🔵 Electrons:
+                        <strong id="electrons">-</strong>
+                    </p>
+
+                    <p>
+                        🟢 Neutrons:
+                        <strong id="neutrons">-</strong>
+                    </p>
+
+                </div>
+<!-- ELEMENT SPECIFICATIONS -->
+
+<div class="element-specifications">
+
+    <h3>📋 Element Specifications</h3>
+
+    <p>
+        🌡️ State:
+        <strong id="elementState">-</strong>
+    </p>
+
+    <p>
+        🔬 Natural Form:
+        <strong id="elementNaturalForm">-</strong>
+    </p>
+
+    <p>
+        🌍 Found In:
+        <strong id="elementSources">-</strong>
+    </p>
+
+    <p>
+        🛠️ Uses:
+        <strong id="elementUses">-</strong>
+    </p>
+
+</div>
+
+            </section>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+     ELEMENT COMBINER
+========================================== -->
+
+<section class="info-box combination-box">
+
+    <h2>🧪 Element Combiner</h2>
+
+    <p>
+        Search for 2 or 3 elements and discover what they can form.
+    </p>
+
+    <div class="combiner">
+
+        <input
+            type="text"
+            id="element1"
+            list="elementList"
+            placeholder="🔍 Search first element..."
+            autocomplete="off"
+        >
+
+        <input
+            type="text"
+            id="element2"
+            list="elementList"
+            placeholder="🔍 Search second element..."
+            autocomplete="off"
+        >
+
+        <input
+            type="text"
+            id="element3"
+            list="elementList"
+            placeholder="🔍 Search third element (optional)..."
+            autocomplete="off"
+        >
+
+        <datalist id="elementList"></datalist>
+
+        <button type="button" onclick="combineElements()">
+            ⚗️ Combine Elements
+        </button>
+
+    </div>
+
+    <div id="combinationResult" class="combination-result">
+        Search for elements to begin.
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+    <p>Explore • Learn • Discover</p>
+
+    <p>
+        Made with 💗 by Shashwat Arya
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -919,15 +919,20 @@ footer p:last-child {
         font-size: 20px;
     }
 
-    /* Periodic table can scroll horizontally
-       instead of becoming extremely tiny */
+
+    /* =====================================================
+       PERIODIC TABLE — MOBILE
+       ===================================================== */
+
     .periodic-box {
         overflow-x: auto;
+        overflow-y: hidden;
     }
 
     .periodic-table {
         width: 700px;
         min-width: 700px;
+
         grid-auto-rows: 38px;
         row-gap: 4px;
     }
@@ -938,16 +943,23 @@ footer p:last-child {
         border-radius: 6px;
     }
 
-    /* Atom becomes smaller on phones */
+
+    /* =====================================================
+       2D ATOM — MOBILE
+       ===================================================== */
+
     .atom-2d {
-        width: 260px;
-        height: 260px;
+        width: 280px;
+        height: 280px;
+
         margin: 15px auto;
+
+        overflow: hidden;
     }
 
     #electronShells {
-        width: 245px;
-        height: 245px;
+        width: 260px;
+        height: 260px;
     }
 
     .nucleus-2d {
@@ -958,15 +970,22 @@ footer p:last-child {
     .nucleus-2d span {
         width: 26px;
         height: 26px;
+
         font-size: 14px;
     }
 
     #electronShells .electron {
         width: 10px;
         height: 10px;
+
         margin-left: -5px;
         margin-top: -5px;
     }
+
+
+    /* =====================================================
+       ELEMENT INFORMATION — MOBILE
+       ===================================================== */
 
     .atom-box .info-box {
         padding: 15px;
@@ -975,6 +994,11 @@ footer p:last-child {
     .info-box p {
         font-size: 14px;
     }
+
+
+    /* =====================================================
+       COMBINER — MOBILE
+       ===================================================== */
 
     .combination-box {
         margin-top: 18px;
@@ -990,6 +1014,11 @@ footer p:last-child {
         width: 100%;
         max-width: none;
     }
+
+
+    /* =====================================================
+       FOOTER — MOBILE
+       ===================================================== */
 
     footer {
         margin-top: 30px;
@@ -1024,6 +1053,11 @@ footer p:last-child {
     color: #bdefff;
     line-height: 1.6;
 }
+
+
+/* =========================================================
+   LANTHANIDE GAP
+   ========================================================= */
 
 .lanthanide-gap {
     grid-column: 1 / -1;

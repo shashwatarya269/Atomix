@@ -332,8 +332,8 @@ h2 {
    ========================================================= */
 
 .atom-2d {
-    width: 320px;
-    height: 320px;
+    width: 340px;
+    height: 340px;
 
     margin: 20px auto;
 
@@ -345,7 +345,7 @@ h2 {
 
     overflow: visible;
 
-    border-radius: 50%;
+    border-radius: 0;
 }
 
 

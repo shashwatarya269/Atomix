@@ -885,42 +885,7 @@ footer p:last-child {
     }
 }
 
-/* =========================================================
-   SMALL MOBILE — FINAL FIX
-   ========================================================= */
-
-@media (max-width: 500px) {
-
-    header {
-        padding: 28px 12px;
-    }
-
-    header h1 {
-        font-size: 34px;
-    }
-
-    header p {
-        font-size: 14px;
-    }
-
-    main {
-        width: 96%;
-        margin: 20px auto 35px;
-    }
-
-    .periodic-box,
-    .atom-box,
-    .combination-box {
-        padding: 15px;
-        border-radius: 17px;
-    }
-
-    h2 {
-        font-size: 20px;
-    }
-
-
-    /* =====================================================
+ /* =====================================================
        PERIODIC TABLE — MOBILE
        ===================================================== */
 
@@ -1064,3 +1029,7 @@ footer p:last-child {
     height: 35px;
 }
 
+
+
+
+   

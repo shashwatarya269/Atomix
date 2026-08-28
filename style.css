@@ -479,7 +479,7 @@ h2 {
 
     transform-origin: center center;
 
-    will-change: transform
+    will-change: transform;
 
     box-shadow:
         0 0 5px rgba(0, 217, 255, 0.08);
@@ -885,19 +885,18 @@ footer p:last-child {
     }
 }
 
-
 /* =========================================================
-   SMALL MOBILE
+   SMALL MOBILE — FINAL FIX
    ========================================================= */
 
 @media (max-width: 500px) {
 
     header {
-        padding: 32px 15px;
+        padding: 28px 12px;
     }
 
     header h1 {
-        font-size: 35px;
+        font-size: 34px;
     }
 
     header p {
@@ -906,12 +905,102 @@ footer p:last-child {
 
     main {
         width: 96%;
+        margin: 20px auto 35px;
+    }
 
-        margin-top:
+    .periodic-box,
+    .atom-box,
+    .combination-box {
+        padding: 15px;
+        border-radius: 17px;
+    }
 
-/* =========================
+    h2 {
+        font-size: 20px;
+    }
+
+    /* Periodic table can scroll horizontally
+       instead of becoming extremely tiny */
+    .periodic-box {
+        overflow-x: auto;
+    }
+
+    .periodic-table {
+        width: 700px;
+        min-width: 700px;
+        grid-auto-rows: 38px;
+        row-gap: 4px;
+    }
+
+    .periodic-table button {
+        height: 38px;
+        font-size: 11px;
+        border-radius: 6px;
+    }
+
+    /* Atom becomes smaller on phones */
+    .atom-2d {
+        width: 260px;
+        height: 260px;
+        margin: 15px auto;
+    }
+
+    #electronShells {
+        width: 245px;
+        height: 245px;
+    }
+
+    .nucleus-2d {
+        width: 52px;
+        height: 52px;
+    }
+
+    .nucleus-2d span {
+        width: 26px;
+        height: 26px;
+        font-size: 14px;
+    }
+
+    #electronShells .electron {
+        width: 10px;
+        height: 10px;
+        margin-left: -5px;
+        margin-top: -5px;
+    }
+
+    .atom-box .info-box {
+        padding: 15px;
+    }
+
+    .info-box p {
+        font-size: 14px;
+    }
+
+    .combination-box {
+        margin-top: 18px;
+    }
+
+    .combiner {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .combiner input,
+    .combiner button {
+        width: 100%;
+        max-width: none;
+    }
+
+    footer {
+        margin-top: 30px;
+        padding: 25px 12px;
+    }
+}
+
+
+/* =========================================================
    ELECTRON DISTRIBUTION
-========================= */
+   ========================================================= */
 
 .electron-distribution {
     margin-top: 15px;
@@ -937,7 +1026,7 @@ footer p:last-child {
 }
 
 .lanthanide-gap {
- grid-column: 1 / -1;
- height: 35px;
+    grid-column: 1 / -1;
+    height: 35px;
 }
 

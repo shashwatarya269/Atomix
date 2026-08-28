@@ -2025,7 +2025,7 @@ function createAtom(atomicNumber) {
 
         // Keep all 7 shells inside the 290px atom area
         const size =
-            50 + shellNumber * 34;
+            30 + shellNumber * 28;
 
         shellDiv.style.width =
             size + "px";

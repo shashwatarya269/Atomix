@@ -1058,13 +1058,11 @@ footer p:last-child {
 }
 
 /* =========================================================
-   ⚛️ ATOMIX QUIZ — ORIGINAL LAYOUT
+   CLASS 9–10 CHEMISTRY QUIZ
    ========================================================= */
 
 .quiz-box {
-    width: 100%;
     margin-top: 30px;
-    padding: 28px;
     text-align: center;
 }
 
@@ -1077,16 +1075,24 @@ footer p:last-child {
     color: #00d9ff;
 }
 
-/* QUESTION + SCORE */
+
+/* START SCREEN */
+
+#quizStart p {
+    max-width: 600px;
+    margin: 10px auto 20px;
+    line-height: 1.6;
+}
+
+
+/* QUIZ PROGRESS */
 
 .quiz-progress {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-
-    width: 100%;
 
     margin-bottom: 25px;
+
     padding: 12px 15px;
 
     background: rgba(0, 217, 255, 0.08);
@@ -1096,41 +1102,40 @@ footer p:last-child {
     border-radius: 10px;
 
     color: #00d9ff;
+
     font-weight: bold;
 }
 
-#quizQuestion {
-    width: 100%;
 
+/* QUESTION */
+
+#quizQuestion {
     font-size: 20px;
+
     line-height: 1.5;
 
     margin-bottom: 25px;
-
-    text-align: left;
 }
 
-/* =========================================================
-   ANSWERS — ONE BELOW ANOTHER
-   ========================================================= */
+
+/* OPTIONS */
 
 .quiz-options {
-    display: grid !important;
+    display: grid;
 
-    grid-template-columns: 1fr !important;
+    grid-template-columns: 1fr;
 
     gap: 12px;
 
-    width: 100%;
     max-width: 650px;
 
-    margin: 0 auto;
+    margin: auto;
 }
 
-.quiz-options button {
-    display: block !important;
 
-    width: 100% !important;
+.quiz-options button {
+
+    width: 100%;
 
     padding: 15px;
 
@@ -1144,42 +1149,101 @@ footer p:last-child {
 
     font-size: 16px;
 
-    text-align: left;
-
     cursor: pointer;
 
-    transition: 0.25s ease;
+    transition: 0.25s;
+
 }
 
+
 .quiz-options button:hover {
+
     background: rgba(0, 217, 255, 0.2);
 
     transform: translateY(-2px);
+
 }
 
-/* CORRECT */
+
+/* CORRECT / WRONG ANSWERS */
 
 .quiz-options button.correct {
+
     background: rgba(0, 255, 120, 0.2);
 
     border-color: #00ff78;
+
 }
 
-/* WRONG */
 
 .quiz-options button.wrong {
+
     background: rgba(255, 70, 70, 0.2);
 
     border-color: #ff4646;
+
 }
 
 
-.quiz-options button.correct {
-    background: rgba(0, 255, 120, 0.2);
-    border-color: #00ff78;
+/* RESULT SCREEN */
+
+#quizResult {
+
+    padding: 20px;
+
 }
 
-.quiz-options button.wrong {
-    background: rgba(255, 70, 70, 0.2);
-    border-color: #ff4646;
+
+#finalScore {
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #00d9ff;
+
+    margin: 15px 0;
+
 }
+
+
+#scoreMessage {
+
+    font-size: 17px;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* QUIZ BUTTONS */
+
+.quiz-box button:not(.quiz-options button) {
+
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #00d9ff;
+
+    color: #020612;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+
+}
+
+
+.quiz-box button:not(.quiz-options button):hover {
+
+    transform: translateY(-2px);
+
+}
+

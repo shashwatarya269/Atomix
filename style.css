@@ -1172,3 +1172,14 @@ footer p:last-child {
 
     border-color: #ff4646;
 }
+
+
+.quiz-options button.correct {
+    background: rgba(0, 255, 120, 0.2);
+    border-color: #00ff78;
+}
+
+.quiz-options button.wrong {
+    background: rgba(255, 70, 70, 0.2);
+    border-color: #ff4646;
+}

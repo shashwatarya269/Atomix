@@ -95,7 +95,7 @@ if (signupForm) {
         // Go to login
         setTimeout(function () {
 
-            window.location.href = "Login.html";
+            window.location.href = "login.html";
 
         }, 1200);
 
@@ -175,7 +175,7 @@ if (loginForm) {
         // Return to Atomix
         setTimeout(function () {
 
-            window.location.href = "Index.html";
+            window.location.href = "index.html";
 
         }, 1000);
 

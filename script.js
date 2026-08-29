@@ -2025,7 +2025,7 @@ function createAtom(atomicNumber) {
 
         // Keep all 7 shells inside the 290px atom area
         const size =
-            30 + shellNumber * 28;
+            50 + shellNumber * 34;
 
         shellDiv.style.width =
             size + "px";
@@ -3062,3 +3062,746 @@ document.addEventListener(
 
     }
 );
+
+/* =========================================================
+   CLASS 9–10 CHEMISTRY QUIZ
+   ========================================================= */
+
+
+const allquizQuestions = [
+
+    {
+        question: "What is the smallest particle of an element that retains its chemical properties?",
+        options: [
+            "Atom",
+            "Molecule",
+            "Compound",
+            "Ion"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Which subatomic particle has a negative charge?",
+        options: [
+            "Proton",
+            "Neutron",
+            "Electron",
+            "Nucleus"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "What is the atomic number of an element equal to?",
+        options: [
+            "Number of neutrons",
+            "Number of protons",
+            "Number of shells",
+            "Atomic mass"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Which element has the chemical symbol Na?",
+        options: [
+            "Nitrogen",
+            "Neon",
+            "Sodium",
+            "Nickel"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "What is the maximum number of electrons that the first shell can hold?",
+        options: [
+            "2",
+            "8",
+            "18",
+            "32"
+        ],
+        answer: 0
+    },
+
+    {
+        question: "Which of the following is a non-metal?",
+        options: [
+            "Iron",
+            "Copper",
+            "Oxygen",
+            "Aluminium"
+        ],
+        answer: 2
+    },
+
+    {
+        question: "What is the chemical formula of water?",
+        options: [
+            "CO₂",
+            "H₂O",
+            "O₂",
+            "NaCl"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Which gas is necessary for respiration?",
+        options: [
+            "Nitrogen",
+            "Oxygen",
+            "Carbon dioxide",
+            "Hydrogen"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "What is the valency of oxygen?",
+        options: [
+            "1",
+            "2",
+            "3",
+            "4"
+        ],
+        answer: 1
+    },
+
+    {
+        question: "Which of these is a chemical change?",
+        options: [
+            "Melting ice",
+            "Boiling water",
+            "Rusting of iron",
+            "Dissolving sugar in water"
+        ],
+        answer: 2
+    },
+
+{
+    question: "Which particle is present in the nucleus and has no charge?",
+    options: [
+        "Electron",
+        "Proton",
+        "Neutron",
+        "Ion"
+    ],
+    answer: 2
+},
+
+{
+    question: "Which element has the chemical symbol Fe?",
+    options: [
+        "Fluorine",
+        "Iron",
+        "Francium",
+        "Fermium"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which of the following is a metalloid?",
+    options: [
+        "Silicon",
+        "Oxygen",
+        "Sodium",
+        "Chlorine"
+    ],
+    answer: 0
+},
+
+{
+    question: "What is the atomic number of carbon?",
+    options: [
+        "4",
+        "6",
+        "8",
+        "12"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which element is represented by the symbol K?",
+    options: [
+        "Krypton",
+        "Potassium",
+        "Calcium",
+        "Cobalt"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which gas is most abundant in Earth's atmosphere?",
+    options: [
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen",
+        "Hydrogen"
+    ],
+    answer: 2
+},
+
+{
+    question: "What is the chemical formula of carbon dioxide?",
+    options: [
+        "CO",
+        "CO₂",
+        "C₂O",
+        "CaO"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which of the following is a noble gas?",
+    options: [
+        "Chlorine",
+        "Neon",
+        "Sodium",
+        "Sulfur"
+    ],
+    answer: 1
+},
+
+{
+    question: "What is the charge of a proton?",
+    options: [
+        "Negative",
+        "Positive",
+        "Neutral",
+        "Variable"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which particle moves around the nucleus?",
+    options: [
+        "Proton",
+        "Neutron",
+        "Electron",
+        "Nucleus"
+    ],
+    answer: 2
+},
+
+{
+    question: "What is the formula for common salt?",
+    options: [
+        "NaCl",
+        "HCl",
+        "NaOH",
+        "CaCO₃"
+    ],
+    answer: 0
+},
+
+{
+    question: "Which of the following is an acid?",
+    options: [
+        "NaOH",
+        "HCl",
+        "CaO",
+        "NaCl"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which of the following is a base?",
+    options: [
+        "H₂SO₄",
+        "HCl",
+        "NaOH",
+        "CO₂"
+    ],
+    answer: 2
+},
+
+{
+    question: "What is the chemical symbol for gold?",
+    options: [
+        "Gd",
+        "Go",
+        "Au",
+        "Ag"
+    ],
+    answer: 2
+},
+
+{
+    question: "Which element is liquid at room temperature?",
+    options: [
+        "Iron",
+        "Mercury",
+        "Carbon",
+        "Sodium"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which process is used to prevent iron from rusting?",
+    options: [
+        "Melting",
+        "Galvanisation",
+        "Evaporation",
+        "Condensation"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which of the following is a physical change?",
+    options: [
+        "Burning wood",
+        "Rusting iron",
+        "Melting ice",
+        "Cooking food"
+    ],
+    answer: 2
+},
+
+{
+    question: "What is the valency of hydrogen?",
+    options: [
+        "1",
+        "2",
+        "3",
+        "4"
+    ],
+    answer: 0
+},
+
+{
+    question: "Which element is necessary for the formation of haemoglobin?",
+    options: [
+        "Iron",
+        "Helium",
+        "Neon",
+        "Gold"
+    ],
+    answer: 0
+},
+
+{
+    question: "Which of the following is a compound?",
+    options: [
+        "Oxygen",
+        "Gold",
+        "Water",
+        "Nitrogen"
+    ],
+    answer: 2
+}
+
+,
+
+{
+    question: "Which of the following is a homogeneous mixture?",
+    options: [
+        "Sand and water",
+        "Salt and water",
+        "Oil and water",
+        "Soil"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which method is commonly used to separate an insoluble solid from a liquid?",
+    options: [
+        "Filtration",
+        "Distillation",
+        "Sublimation",
+        "Crystallisation"
+    ],
+    answer: 0
+},
+
+{
+    question: "What is the pH value of a neutral solution?",
+    options: [
+        "0",
+        "5",
+        "7",
+        "14"
+    ],
+    answer: 2
+},
+
+{
+    question: "Which gas is produced when an acid reacts with a carbonate?",
+    options: [
+        "Hydrogen",
+        "Oxygen",
+        "Carbon dioxide",
+        "Nitrogen"
+    ],
+    answer: 2
+},
+
+{
+    question: "Which indicator turns pink in a basic solution?",
+    options: [
+        "Litmus",
+        "Phenolphthalein",
+        "Turmeric",
+        "Methyl orange"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which of the following is a covalent compound?",
+    options: [
+        "NaCl",
+        "MgO",
+        "H₂O",
+        "CaCl₂"
+    ],
+    answer: 2
+},
+
+{
+    question: "Which process changes a gas directly into a solid?",
+    options: [
+        "Melting",
+        "Condensation",
+        "Deposition",
+        "Evaporation"
+    ],
+    answer: 2
+},
+
+{
+    question: "What is the chemical symbol for silver?",
+    options: [
+        "Si",
+        "S",
+        "Ag",
+        "Au"
+    ],
+    answer: 2
+},
+
+{
+    question: "Which element has atomic number 1?",
+    options: [
+        "Helium",
+        "Hydrogen",
+        "Lithium",
+        "Oxygen"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which of the following is an alkali metal?",
+    options: [
+        "Magnesium",
+        "Sodium",
+        "Aluminium",
+        "Calcium"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which element belongs to Group 18 of the periodic table?",
+    options: [
+        "Oxygen",
+        "Chlorine",
+        "Neon",
+        "Sodium"
+    ],
+    answer: 2
+},
+
+{
+    question: "What is the chemical formula of methane?",
+    options: [
+        "CH₄",
+        "CO₂",
+        "CH₃OH",
+        "C₂H₆"
+    ],
+    answer: 0
+},
+
+{
+    question: "Which process is used to obtain pure water from salt water?",
+    options: [
+        "Filtration",
+        "Distillation",
+        "Sedimentation",
+        "Decantation"
+    ],
+    answer: 1
+},
+
+{
+    question: "Which of the following is an example of sublimation?",
+    options: [
+        "Melting ice",
+        "Boiling water",
+        "Naphthalene changing directly into vapour",
+        "Water freezing"
+    ],
+    answer: 2
+},
+
+{
+    question: "Which particle determines the identity of an element?",
+    options: [
+        "Electron",
+        "Neutron",
+        "Proton",
+        "Shell"
+    ],
+    answer: 2
+},
+
+{
+    question: "What is the formula of calcium carbonate?",
+    options: [
+        "CaCO₃",
+        "CaCl₂",
+        "CaO",
+        "CaSO₄"
+    ],
+    answer: 0
+},
+
+{
+    question: "Which gas is commonly used by plants during photosynthesis?",
+    options: [
+        "Oxygen",
+        "Nitrogen",
+        "Carbon dioxide",
+        "Hydrogen"
+    ],
+    answer: 2
+},
+
+{
+    question: "What happens to blue litmus paper in an acidic solution?",
+    options: [
+        "It turns red",
+        "It turns green",
+        "It remains blue",
+        "It turns pink"
+    ],
+    answer: 0
+},
+
+{
+    question: "Which of the following has the highest atomic number?",
+    options: [
+        "Hydrogen",
+        "Carbon",
+        "Oxygen",
+        "Neon"
+    ],
+    answer: 3
+},
+
+{
+    question: "Which statement about a physical change is correct?",
+    options: [
+        "A new substance is always formed",
+        "It is always irreversible",
+        "No new substance is formed",
+        "The chemical composition always changes"
+    ],
+    answer: 2
+}
+
+];
+
+
+let quizQuestions = [];
+
+let currentQuestion = 0;
+let score = 0;
+let quizLength = 10;
+
+function shuffleQuestions() {
+
+    const shuffled = [...allquizQuestions];
+
+    shuffled.sort(() => Math.random() - 0.5);
+
+    quizQuestions = shuffled.slice(0, quizLength);
+
+}
+
+/* START QUIZ */
+
+function startQuiz(length) {
+
+    quizLength = length;
+
+    shuffleQuestions();
+
+    currentQuestion = 0;
+    score = 0;
+
+    document.getElementById("quizStart").style.display = "none";
+
+    document.getElementById("quizResult").style.display = "none";
+
+    document.getElementById("quizArea").style.display = "block";
+
+    showQuizQuestion();
+
+}
+
+
+/* SHOW QUESTION */
+
+function showQuizQuestion() {
+
+    const question = quizQuestions[currentQuestion];
+
+    document.getElementById("questionNumber").textContent =
+        `Question ${currentQuestion + 1} / ${quizQuestions.length}`;
+
+    document.getElementById("quizScore").textContent =
+        `Score: ${score}`;
+
+    document.getElementById("quizQuestion").textContent =
+        question.question;
+
+
+    const optionsContainer =
+        document.getElementById("quizOptions");
+
+    optionsContainer.innerHTML = "";
+
+
+    question.options.forEach((option, index) => {
+
+        const button = document.createElement("button");
+
+        button.textContent =
+            `${String.fromCharCode(65 + index)}. ${option}`;
+
+        button.onclick = () => selectAnswer(index);
+
+        optionsContainer.appendChild(button);
+
+    });
+
+}
+
+
+/* SELECT ANSWER */
+
+function selectAnswer(selectedAnswer) {
+
+    const question = quizQuestions[currentQuestion];
+
+    const optionButtons =
+        document.querySelectorAll("#quizOptions button");
+
+
+    optionButtons.forEach(button => {
+
+        button.disabled = true;
+
+    });
+
+
+    if (selectedAnswer === question.answer) {
+
+        score++;
+
+        optionButtons[selectedAnswer]
+            .classList.add("correct");
+
+    } else {
+
+        optionButtons[selectedAnswer]
+            .classList.add("wrong");
+
+        optionButtons[question.answer]
+            .classList.add("correct");
+
+    }
+
+
+    document.getElementById("quizScore").textContent =
+        `Score: ${score}`;
+
+
+    setTimeout(() => {
+
+        currentQuestion++;
+
+        if (currentQuestion < quizQuestions.length) {
+
+            showQuizQuestion();
+
+        } else {
+
+            showQuizResult();
+
+        }
+
+    }, 1200);
+
+}
+
+
+/* SHOW RESULT */
+
+function showQuizResult() {
+
+    document.getElementById("quizArea").style.display = "none";
+
+    document.getElementById("quizResult").style.display = "block";
+
+
+    document.getElementById("finalScore").textContent =
+        `Your score: ${score} / ${quizQuestions.length}`;
+
+
+    let message = "";
+
+
+    if (score === quizQuestions.length) {
+
+        message = "🏆 Perfect score! You are a chemistry master!";
+
+    } else if (score >= 8) {
+
+        message = "🌟 Excellent work! You know chemistry very well.";
+
+    } else if (score >= 5) {
+
+        message = "👍 Good job! Keep learning and you will improve.";
+
+    } else {
+
+        message = "📚 Keep practicing! Every quiz makes you better.";
+    }
+
+
+    document.getElementById("scoreMessage").textContent = message;
+
+}
+
+
+/* RESTART QUIZ */
+
+function restartQuiz() {
+
+    startQuiz(quizLength);
+
+}

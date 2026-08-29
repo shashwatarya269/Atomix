@@ -176,8 +176,8 @@ if (loginForm) {
         // Return to Atomix
         setTimeout(function () {
 
-            window.location.href = "index.html";
-
+            window.location.href = "./";
+            
         }, 1000);
 
     });

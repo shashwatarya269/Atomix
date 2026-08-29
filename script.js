@@ -3805,13 +3805,3 @@ function restartQuiz() {
     startQuiz(quizLength);
 
 }
-
-function logoutAtomix() {
-
-
-localStorage.removeItem("atomixLoggedIn");
-localStorage.removeItem("atomixCurrentUser");
-
-window.location.href = "Welcome.html";
-
-}

@@ -1057,6 +1057,201 @@ footer p:last-child {
     height: 35px;
 }
 
+/* =========================================================
+   🧠 CHEMISTRY QUIZ
+   ========================================================= */
+
+.quiz-box {
+    width: 100%;
+    margin-top: 25px;
+    padding: 28px;
+}
+
+.quiz-box h2 {
+    margin-bottom: 10px;
+}
+
+.quiz-box > p {
+    color: #bdefff;
+    margin-bottom: 25px;
+}
+
+/* Quiz start screen */
+
+#quizStart {
+    width: 100%;
+    text-align: center;
+}
+
+#quizStart h3 {
+    color: #dffaff;
+    margin-bottom: 12px;
+}
+
+#quizStart p {
+    color: #bdefff;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Quiz mode buttons */
+
+.quiz-mode-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.quiz-mode-buttons button {
+    width: 220px;
+    min-height: 65px;
+    padding: 12px 18px;
+
+    border: 1px solid rgba(0, 217, 255, 0.5);
+    border-radius: 12px;
+
+    background: linear-gradient(
+        135deg,
+        #123553,
+        #0a2137
+    );
+
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.quiz-mode-buttons button span {
+    display: block;
+    margin-top: 5px;
+    font-size: 13px;
+    color: #bdefff;
+}
+
+/* Quiz area */
+
+#quizArea {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Progress */
+
+.quiz-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin-bottom: 25px;
+
+    color: #bdefff;
+    font-weight: bold;
+}
+
+/* Question */
+
+#quizQuestion {
+    width: 100%;
+    margin-bottom: 22px;
+
+    color: #e9fbff;
+    font-size: 21px;
+    line-height: 1.5;
+}
+
+/* Options */
+
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+
+    width: 100%;
+}
+
+.quiz-options button {
+    width: 100%;
+    min-height: 55px;
+
+    padding: 14px 18px;
+
+    border: 1px solid rgba(0, 217, 255, 0.4);
+    border-radius: 11px;
+
+    background: linear-gradient(
+        145deg,
+        #123553,
+        #0a2137
+    );
+
+    color: #e9fbff;
+
+    text-align: left;
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+.quiz-options button:hover {
+    background: linear-gradient(
+        145deg,
+        #008dcc,
+        #005de0
+    );
+
+    box-shadow:
+        0 0 12px rgba(0, 217, 255, 0.4);
+}
+
+/* Result */
+
+#quizResult {
+    width: 100%;
+    text-align: center;
+}
+
+#quizResult h3 {
+    color: #00d9ff;
+    margin-bottom: 15px;
+}
+
+#finalScore,
+#scoreMessage {
+    color: #d9f8ff;
+    margin: 10px 0;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .quiz-box {
+        padding: 20px 15px;
+    }
+
+    .quiz-progress {
+        font-size: 13px;
+    }
+
+    #quizQuestion {
+        font-size: 18px;
+    }
+
+    .quiz-options {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-mode-buttons {
+        flex-direction: column;
+    }
+
+    .quiz-mode-buttons button {
+        width: 100%;
+    }
+}
 
 
 

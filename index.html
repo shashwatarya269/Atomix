@@ -365,6 +365,95 @@
 
 </section>
 
+<!-- =========================================
+     CLASS 9–10 CHEMISTRY QUIZ
+========================================== -->
+
+<section class="info-box quiz-box">
+
+    <h2>🧠 Chemistry Quiz</h2>
+
+    <p>
+        Test your Class 9–10 chemistry knowledge!
+    </p>
+
+    <!-- QUIZ START SCREEN -->
+    <div id="quizStart">
+
+        <h3>Ready to test yourself? ⚛️</h3>
+
+        <p>
+            Answer 10 questions and test your knowledge of
+            atoms, elements, compounds and chemistry.
+        </p>
+
+        <div class="quiz-mode-buttons">
+
+```
+<button type="button" onclick="startQuiz(10)">
+    🟢 Quick Quiz
+    <span>10 Questions</span>
+</button>
+
+<button type="button" onclick="startQuiz(20)">
+    🔵 Challenge Quiz
+    <span>20 Questions</span>
+</button>
+```
+
+</div>
+
+</div>
+
+
+
+    <!-- QUIZ AREA -->
+    <div id="quizArea" style="display: none;">
+
+        <div class="quiz-progress">
+
+            <span id="questionNumber">
+                Question 1 / 10
+            </span>
+
+            <span id="quizScore">
+                Score: 0
+            </span>
+
+        </div>
+
+
+        <h3 id="quizQuestion">
+            Question will appear here.
+        </h3>
+
+
+        <div id="quizOptions" class="quiz-options">
+            <!-- Options will be added by JavaScript -->
+        </div>
+
+    </div>
+
+
+    <!-- QUIZ RESULT -->
+    <div id="quizResult" style="display: none;">
+
+        <h3>🎉 Quiz Complete!</h3>
+
+        <p id="finalScore">
+            Your score: 0 / 10
+        </p>
+
+        <p id="scoreMessage"></p>
+
+        <button type="button" onclick="restartQuiz()">
+            🔄 Try Again
+        </button>
+
+    </div>
+
+</section>
+
 
 <!-- =========================================
      FOOTER
@@ -380,6 +469,12 @@
 
 </footer>
 
+
+<script>
+    if (localStorage.getItem("atomixLoggedIn") !== "true") {
+        window.location.href = "Welcome.html";
+    }
+</script>
 
 <script src="script.js"></script>
 

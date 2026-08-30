@@ -2024,8 +2024,13 @@ function createAtom(atomicNumber) {
             "electron-shell";
 
         // Keep all 7 shells inside the 290px atom area
-        const size =
-            50 + shellNumber * 34;
+        const totalShells = distribution.length;
+
+const maxSize = 460;
+const minSize = 80;
+
+const size =
+    45 + shellNumber * 26;
 
         shellDiv.style.width =
             size + "px";
@@ -3631,17 +3636,477 @@ let currentQuestion = 0;
 let score = 0;
 let quizLength = 10;
 
-function shuffleQuestions() {
 
-    const shuffled = [...allquizQuestions];
+/* =========================================
+   TEACHER'S QUESTION CORNER
+========================================= */
 
-    shuffled.sort(() => Math.random() - 0.5);
+function openTeacherCorner() {
 
-    quizQuestions = shuffled.slice(0, quizLength);
+    const form =
+        document.getElementById("teacherQuestionForm");
+
+    if (form.style.display === "none") {
+
+        form.style.display = "block";
+
+    } else {
+
+        form.style.display = "none";
+
+    }
 
 }
 
-/* START QUIZ */
+
+/* SAVE TEACHER QUESTION */
+
+function saveTeacherQuestion() {
+
+    const question =
+        document.getElementById("teacherQuestion").value.trim();
+
+    const option1 =
+        document.getElementById("teacherOption1").value.trim();
+
+    const option2 =
+        document.getElementById("teacherOption2").value.trim();
+
+    const option3 =
+        document.getElementById("teacherOption3").value.trim();
+
+    const option4 =
+        document.getElementById("teacherOption4").value.trim();
+
+    const correctAnswer =
+        document.getElementById("teacherCorrectAnswer").value;
+
+    const addToQuickQuiz =
+        document.getElementById("addToQuickQuiz").checked;
+
+    const addToChallengeQuiz =
+        document.getElementById("addToChallengeQuiz").checked;
+
+    const editingIndex =
+        Number(
+            document.getElementById("editingTeacherQuestion").value
+        );
+
+
+    if (
+        question === "" ||
+        option1 === "" ||
+        option2 === "" ||
+        option3 === "" ||
+        option4 === "" ||
+        correctAnswer === ""
+    ) {
+
+        alert("Please fill in all fields.");
+        return;
+    }
+
+
+    if (!addToQuickQuiz && !addToChallengeQuiz) {
+
+        alert(
+            "Please select Quick Quiz, Challenge Quiz, or both."
+        );
+
+        return;
+    }
+
+
+    const updatedQuestion = {
+
+        question: question,
+
+        options: [
+            option1,
+            option2,
+            option3,
+            option4
+        ],
+
+        answer: Number(correctAnswer),
+
+        quickQuiz: addToQuickQuiz,
+
+        challengeQuiz: addToChallengeQuiz
+
+    };
+
+
+    let teacherQuestions =
+        JSON.parse(
+            localStorage.getItem("teacherQuestions")
+        ) || [];
+
+
+    /* EDIT EXISTING QUESTION */
+
+    if (
+        editingIndex >= 0 &&
+        editingIndex < teacherQuestions.length
+    ) {
+
+        teacherQuestions[editingIndex] =
+            updatedQuestion;
+
+        alert("✅ Question updated successfully!");
+
+    } else {
+
+        /* ADD NEW QUESTION */
+
+        teacherQuestions.push(updatedQuestion);
+
+        alert("🎉 Teacher question added successfully!");
+
+    }
+
+
+    localStorage.setItem(
+        "teacherQuestions",
+        JSON.stringify(teacherQuestions)
+    );
+
+
+    /* RESET EDIT MODE */
+
+    document.getElementById(
+        "editingTeacherQuestion"
+    ).value = "-1";
+
+
+    /* CLEAR FORM */
+
+    document.getElementById("teacherQuestion").value = "";
+
+    document.getElementById("teacherOption1").value = "";
+
+    document.getElementById("teacherOption2").value = "";
+
+    document.getElementById("teacherOption3").value = "";
+
+    document.getElementById("teacherOption4").value = "";
+
+    document.getElementById("teacherCorrectAnswer").value = "";
+
+    document.getElementById("addToQuickQuiz").checked = false;
+
+    document.getElementById("addToChallengeQuiz").checked = false;
+
+
+    /* REFRESH QUESTION BANK */
+
+    const list =
+        document.getElementById("teacherQuestionList");
+
+    if (list) {
+
+        list.style.display = "none";
+
+    }
+
+}
+
+/* =========================================
+   SHOW TEACHER QUESTION BANK
+========================================= */
+
+function showTeacherQuestions() {
+
+    const list =
+        document.getElementById("teacherQuestionList");
+
+    if (!list) return;
+
+
+    /* GET SAVED QUESTIONS */
+
+    const teacherQuestions =
+        JSON.parse(
+            localStorage.getItem("teacherQuestions")
+        ) || [];
+
+
+    /* TOGGLE QUESTION BANK */
+
+    if (list.style.display === "block") {
+
+        list.style.display = "none";
+
+        return;
+
+    }
+
+
+    list.style.display = "block";
+
+
+    /* NO QUESTIONS */
+
+    if (teacherQuestions.length === 0) {
+
+        list.innerHTML =
+            "<p>📭 No teacher questions have been added yet.</p>";
+
+        return;
+
+    }
+
+
+    /* DISPLAY QUESTIONS */
+
+    list.innerHTML = "";
+
+
+    teacherQuestions.forEach((question, index) => {
+
+        const questionBox =
+            document.createElement("div");
+
+        questionBox.className =
+            "teacher-question-item";
+
+
+        const quizTypes = [];
+
+
+        if (question.quickQuiz === true) {
+
+            quizTypes.push("🟢 Quick Quiz");
+
+        }
+
+
+        if (question.challengeQuiz === true) {
+
+            quizTypes.push("🔵 Challenge Quiz");
+
+        }
+
+
+        questionBox.innerHTML = `
+
+            <h4>
+                ${index + 1}. ${question.question}
+            </h4>
+
+            <p>
+                A. ${question.options[0]}
+            </p>
+
+            <p>
+                B. ${question.options[1]}
+            </p>
+
+            <p>
+                C. ${question.options[2]}
+            </p>
+
+            <p>
+                D. ${question.options[3]}
+            </p>
+
+            <p>
+                ✅ Correct Answer:
+                ${question.options[question.answer]}
+            </p>
+
+            <p>
+                📌 Used in:
+                ${
+                    quizTypes.length > 0
+                        ? quizTypes.join(" • ")
+                        : "Not selected for a quiz"
+                }
+            </p>
+
+        `;
+
+
+        list.appendChild(questionBox);
+
+    });
+
+}
+
+
+
+
+    
+
+
+/* =========================================
+   SHUFFLE QUESTIONS
+========================================= */
+
+function shuffleArray(array) {
+
+    const shuffled = [...array];
+
+    shuffled.sort(() => Math.random() - 0.5);
+
+    return shuffled;
+
+}
+
+
+function shuffleQuestions() {
+
+    const teacherQuestions =
+        JSON.parse(
+            localStorage.getItem("teacherQuestions")
+        ) || [];
+
+
+    /* GET QUESTIONS SELECTED FOR THIS QUIZ */
+
+    let selectedTeacherQuestions;
+
+
+    if (quizLength === 10) {
+
+        selectedTeacherQuestions =
+            teacherQuestions.filter(
+                question => question.quickQuiz === true
+            );
+
+    } else {
+
+        selectedTeacherQuestions =
+            teacherQuestions.filter(
+                question => question.challengeQuiz === true
+            );
+
+    }
+
+
+    /* SHUFFLE TEACHER QUESTIONS */
+
+    selectedTeacherQuestions =
+        shuffleArray(selectedTeacherQuestions);
+
+
+    /* TAKE UP TO THE QUIZ LIMIT */
+
+    selectedTeacherQuestions =
+        selectedTeacherQuestions.slice(0, quizLength);
+
+
+    /* NUMBER OF NORMAL QUESTIONS NEEDED */
+
+    const normalQuestionCount =
+        quizLength - selectedTeacherQuestions.length;
+
+
+    /* GET RANDOM NORMAL QUESTIONS */
+
+    const normalQuestions =
+        shuffleArray(allquizQuestions)
+            .slice(0, normalQuestionCount);
+
+
+    /* COMBINE BOTH */
+
+    quizQuestions =
+        shuffleArray([
+            ...selectedTeacherQuestions,
+            ...normalQuestions
+        ]);
+
+}
+
+
+    /* QUICK QUIZ */
+
+    if (quizLength === 10) {
+
+        teacherQuestionCount = 2;
+
+    }
+
+/* =========================================
+   SHUFFLE QUESTIONS
+========================================= */
+
+function shuffleQuestions() {
+
+    const teacherQuestions =
+        JSON.parse(
+            localStorage.getItem("teacherQuestions")
+        ) || [];
+
+
+    let selectedTeacherQuestions = [];
+
+
+    /* QUICK QUIZ */
+
+    if (quizLength === 10) {
+
+        selectedTeacherQuestions =
+            teacherQuestions.filter(
+                question => question.quickQuiz === true
+            );
+
+    }
+
+
+    /* CHALLENGE QUIZ */
+
+    if (quizLength === 20) {
+
+        selectedTeacherQuestions =
+            teacherQuestions.filter(
+                question => question.challengeQuiz === true
+            );
+
+    }
+
+
+    /* SHUFFLE TEACHER QUESTIONS */
+
+    selectedTeacherQuestions =
+        shuffleArray(selectedTeacherQuestions);
+
+
+    /* TAKE UP TO QUIZ LIMIT */
+
+    selectedTeacherQuestions =
+        selectedTeacherQuestions.slice(0, quizLength);
+
+
+    /* NORMAL QUESTIONS NEEDED */
+
+    const normalQuestionCount =
+        quizLength - selectedTeacherQuestions.length;
+
+
+    /* SHUFFLE NORMAL QUESTIONS */
+
+    const shuffledNormalQuestions =
+        shuffleArray(allquizQuestions)
+            .slice(0, normalQuestionCount);
+
+
+    /* MIX EVERYTHING */
+
+    quizQuestions =
+        shuffleArray([
+            ...selectedTeacherQuestions,
+            ...shuffledNormalQuestions
+        ]);
+
+}
+
+
+
+/* =========================================
+   START QUIZ
+========================================= */
 
 function startQuiz(length) {
 
@@ -3650,7 +4115,9 @@ function startQuiz(length) {
     shuffleQuestions();
 
     currentQuestion = 0;
+
     score = 0;
+
 
     document.getElementById("quizStart").style.display = "none";
 
@@ -3658,22 +4125,28 @@ function startQuiz(length) {
 
     document.getElementById("quizArea").style.display = "block";
 
+
     showQuizQuestion();
 
 }
 
 
-/* SHOW QUESTION */
+/* =========================================
+   SHOW QUESTION
+========================================= */
 
 function showQuizQuestion() {
 
     const question = quizQuestions[currentQuestion];
 
+
     document.getElementById("questionNumber").textContent =
         `Question ${currentQuestion + 1} / ${quizQuestions.length}`;
 
+
     document.getElementById("quizScore").textContent =
         `Score: ${score}`;
+
 
     document.getElementById("quizQuestion").textContent =
         question.question;
@@ -3682,6 +4155,7 @@ function showQuizQuestion() {
     const optionsContainer =
         document.getElementById("quizOptions");
 
+
     optionsContainer.innerHTML = "";
 
 
@@ -3689,10 +4163,13 @@ function showQuizQuestion() {
 
         const button = document.createElement("button");
 
+
         button.textContent =
             `${String.fromCharCode(65 + index)}. ${option}`;
 
+
         button.onclick = () => selectAnswer(index);
+
 
         optionsContainer.appendChild(button);
 
@@ -3701,11 +4178,14 @@ function showQuizQuestion() {
 }
 
 
-/* SELECT ANSWER */
+/* =========================================
+   SELECT ANSWER
+========================================= */
 
 function selectAnswer(selectedAnswer) {
 
     const question = quizQuestions[currentQuestion];
+
 
     const optionButtons =
         document.querySelectorAll("#quizOptions button");
@@ -3722,6 +4202,7 @@ function selectAnswer(selectedAnswer) {
 
         score++;
 
+
         optionButtons[selectedAnswer]
             .classList.add("correct");
 
@@ -3729,6 +4210,7 @@ function selectAnswer(selectedAnswer) {
 
         optionButtons[selectedAnswer]
             .classList.add("wrong");
+
 
         optionButtons[question.answer]
             .classList.add("correct");
@@ -3743,6 +4225,7 @@ function selectAnswer(selectedAnswer) {
     setTimeout(() => {
 
         currentQuestion++;
+
 
         if (currentQuestion < quizQuestions.length) {
 
@@ -3759,7 +4242,9 @@ function selectAnswer(selectedAnswer) {
 }
 
 
-/* SHOW RESULT */
+/* =========================================
+   SHOW RESULT
+========================================= */
 
 function showQuizResult() {
 
@@ -3777,31 +4262,366 @@ function showQuizResult() {
 
     if (score === quizQuestions.length) {
 
-        message = "🏆 Perfect score! You are a chemistry master!";
+        message =
+            "🏆 Perfect score! You are a chemistry master!";
 
-    } else if (score >= 8) {
+    } else if (
+        score >= Math.ceil(quizQuestions.length * 0.8)
+    ) {
 
-        message = "🌟 Excellent work! You know chemistry very well.";
+        message =
+            "🌟 Excellent work! You know chemistry very well.";
 
-    } else if (score >= 5) {
+    } else if (
+        score >= Math.ceil(quizQuestions.length * 0.5)
+    ) {
 
-        message = "👍 Good job! Keep learning and you will improve.";
+        message =
+            "👍 Good job! Keep learning and you will improve.";
 
     } else {
 
-        message = "📚 Keep practicing! Every quiz makes you better.";
+        message =
+            "📚 Keep practicing! Every quiz makes you better.";
+
     }
 
 
-    document.getElementById("scoreMessage").textContent = message;
+    document.getElementById("scoreMessage").textContent =
+        message;
 
 }
 
+/* =========================================
+   SHOW TEACHER QUESTION BANK
+========================================= */
 
-/* RESTART QUIZ */
+function showTeacherQuestions() {
+
+    const list =
+        document.getElementById("teacherQuestionList");
+
+    if (!list) return;
+
+
+    let teacherQuestions =
+        JSON.parse(
+            localStorage.getItem("teacherQuestions")
+        ) || [];
+
+
+    /* TOGGLE QUESTION BANK */
+
+    if (list.style.display === "block") {
+
+        list.style.display = "none";
+
+        return;
+    }
+
+
+    list.style.display = "block";
+
+
+    /* NO QUESTIONS */
+
+    if (teacherQuestions.length === 0) {
+
+        list.innerHTML =
+            "<p>📭 No teacher questions have been added yet.</p>";
+
+        return;
+    }
+
+
+    list.innerHTML = "";
+
+
+    /* SHOW ALL QUESTIONS */
+
+    teacherQuestions.forEach((question, index) => {
+
+        const questionBox =
+            document.createElement("div");
+
+        questionBox.className =
+            "teacher-question-item";
+
+
+        questionBox.innerHTML = `
+
+            <h4>
+                ${index + 1}. ${question.question}
+            </h4>
+
+            <p>A. ${question.options[0]}</p>
+            <p>B. ${question.options[1]}</p>
+            <p>C. ${question.options[2]}</p>
+            <p>D. ${question.options[3]}</p>
+
+            <p>
+                ✅ Correct Answer:
+                ${question.options[question.answer]}
+            </p>
+
+            <div class="teacher-question-controls">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        class="quick-checkbox"
+                        ${question.quickQuiz === true ? "checked" : ""}
+                    >
+                    🟢 Quick Quiz
+                </label>
+
+                <label>
+                    <input
+                        type="checkbox"
+                        class="challenge-checkbox"
+                        ${question.challengeQuiz === true ? "checked" : ""}
+                    >
+                    🔵 Challenge Quiz
+                </label>
+
+                <button
+                    type="button"
+                    class="edit-teacher-question"
+                >
+                    ✏️ Edit
+                </button>
+
+                <button
+                    type="button"
+                    class="delete-teacher-question"
+                >
+                    🗑️ Delete
+                </button>
+
+            </div>
+
+        `;
+
+
+        /* QUICK QUIZ */
+
+        const quickCheckbox =
+            questionBox.querySelector(".quick-checkbox");
+
+        quickCheckbox.addEventListener(
+            "change",
+            function () {
+
+                teacherQuestions[index].quickQuiz =
+                    this.checked;
+
+                localStorage.setItem(
+                    "teacherQuestions",
+                    JSON.stringify(teacherQuestions)
+                );
+
+            }
+        );
+
+
+        /* CHALLENGE QUIZ */
+
+        const challengeCheckbox =
+            questionBox.querySelector(
+                ".challenge-checkbox"
+            );
+
+        challengeCheckbox.addEventListener(
+            "change",
+            function () {
+
+                teacherQuestions[index].challengeQuiz =
+                    this.checked;
+
+                localStorage.setItem(
+                    "teacherQuestions",
+                    JSON.stringify(teacherQuestions)
+                );
+
+            }
+        );
+
+
+        /* EDIT BUTTON */
+
+        const editButton =
+            questionBox.querySelector(
+                ".edit-teacher-question"
+            );
+
+        editButton.addEventListener(
+            "click",
+            function () {
+
+                document.getElementById(
+                    "teacherQuestion"
+                ).value = question.question;
+
+
+                document.getElementById(
+                    "teacherOption1"
+                ).value = question.options[0];
+
+
+                document.getElementById(
+                    "teacherOption2"
+                ).value = question.options[1];
+
+
+                document.getElementById(
+                    "teacherOption3"
+                ).value = question.options[2];
+
+
+                document.getElementById(
+                    "teacherOption4"
+                ).value = question.options[3];
+
+
+                document.getElementById(
+                    "teacherCorrectAnswer"
+                ).value = question.answer;
+
+
+                document.getElementById(
+                    "addToQuickQuiz"
+                ).checked = question.quickQuiz === true;
+
+
+                document.getElementById(
+                    "addToChallengeQuiz"
+                ).checked =
+                    question.challengeQuiz === true;
+
+
+                document.getElementById(
+    "teacherQuestionForm"
+).style.display = "block";
+
+document.getElementById(
+    "editingTeacherQuestion"
+).value = index;
+
+                alert(
+    "✏️ Question loaded into the form. Edit it and save it."
+);
+
+            }
+        );
+
+
+        /* DELETE BUTTON */
+
+        const deleteButton =
+            questionBox.querySelector(
+                ".delete-teacher-question"
+            );
+
+        deleteButton.addEventListener(
+            "click",
+            function () {
+
+                const confirmed =
+                    confirm(
+                        "Delete this teacher question?"
+                    );
+
+
+                if (!confirmed) return;
+
+
+                teacherQuestions.splice(
+                    index,
+                    1
+                );
+
+
+                localStorage.setItem(
+                    "teacherQuestions",
+                    JSON.stringify(teacherQuestions)
+                );
+
+
+                list.style.display = "none";
+
+                showTeacherQuestions();
+
+            }
+        );
+
+
+        list.appendChild(questionBox);
+
+    });
+
+}
+
+/* =========================================
+   RESTART QUIZ
+========================================= */
 
 function restartQuiz() {
 
     startQuiz(quizLength);
 
 }
+
+/* =========================================
+   TEACHER-ONLY QUESTION CORNER
+========================================= */
+
+function setupTeacherCorner() {
+
+    const teacherCorner =
+        document.querySelector(".teacher-corner");
+
+    const teacherForm =
+        document.getElementById("teacherQuestionForm");
+
+    const questionBank =
+        document.querySelector(".teacher-question-bank");
+
+
+    const role =
+        localStorage.getItem("atomixUserRole");
+
+
+    const isTeacher =
+        role === "teacher";
+
+
+    if (teacherCorner) {
+
+        teacherCorner.style.display =
+            isTeacher ? "block" : "none";
+
+    }
+
+
+    if (teacherForm) {
+
+        teacherForm.style.display =
+            "none";
+
+    }
+
+
+    if (questionBank) {
+
+        questionBank.style.display =
+            isTeacher ? "block" : "none";
+
+    }
+
+}
+
+
+document.addEventListener(
+    "DOMContentLoaded",
+    setupTeacherCorner
+);

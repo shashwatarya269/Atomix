@@ -380,6 +380,73 @@
     <h2>🧠 Chemistry Quiz</h2>
 
     <p>
+
+        <!-- TEACHER'S QUESTION CORNER -->
+
+<div class="teacher-corner">
+
+    <h3>👨‍🏫 Teacher's Question Corner</h3>
+
+    <p>
+        Teachers can add their own chemistry questions for students.
+    </p>
+
+    <button type="button" onclick="openTeacherCorner()">
+        ➕ Add Teacher Question
+    </button>
+
+</div>
+
+
+<!-- TEACHER QUESTION FORM -->
+
+<div id="teacherQuestionForm" style="display: none;">
+
+    <h3>✏️ Add a Question</h3>
+
+    <input
+        type="text"
+        id="teacherQuestion"
+        placeholder="Enter your question"
+    >
+
+    <input
+        type="text"
+        id="teacherOption1"
+        placeholder="Option 1"
+    >
+
+    <input
+        type="text"
+        id="teacherOption2"
+        placeholder="Option 2"
+    >
+
+    <input
+        type="text"
+        id="teacherOption3"
+        placeholder="Option 3"
+    >
+
+    <input
+        type="text"
+        id="teacherOption4"
+        placeholder="Option 4"
+    >
+
+    <select id="teacherCorrectAnswer">
+        <option value="">Select the correct answer</option>
+        <option value="0">Option 1</option>
+        <option value="1">Option 2</option>
+        <option value="2">Option 3</option>
+        <option value="3">Option 4</option>
+    </select>
+
+    <button type="button" onclick="saveTeacherQuestion()">
+        💾 Save Question
+    </button>
+
+</div>
         Test your Class 9–10 chemistry knowledge!
     </p>
 
@@ -395,7 +462,6 @@
 
         <div class="quiz-mode-buttons">
 
-```
 <button type="button" onclick="startQuiz(10)">
     🟢 Quick Quiz
     <span>10 Questions</span>
@@ -405,7 +471,6 @@
     🔵 Challenge Quiz
     <span>20 Questions</span>
 </button>
-```
 
 </div>
 

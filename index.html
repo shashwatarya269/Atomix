@@ -401,7 +401,7 @@
 <!-- TEACHER QUESTION FORM -->
 
 <div id="teacherQuestionForm" style="display: none;">
-
+<input type="hidden" id="editingTeacherQuestion" value="-1">
     <h3>✏️ Add a Question</h3>
 
     <input
@@ -442,11 +442,50 @@
         <option value="3">Option 4</option>
     </select>
 
+<div class="teacher-quiz-selection">
+
+    <h4>📌 Add this question to:</h4>
+
+    <label>
+        <input type="checkbox" id="addToQuickQuiz">
+        🟢 Quick Quiz
+    </label>
+
+    <label>
+        <input type="checkbox" id="addToChallengeQuiz">
+        🔵 Challenge Quiz
+    </label>
+
+</div>
+
     <button type="button" onclick="saveTeacherQuestion()">
         💾 Save Question
     </button>
 
 </div>
+
+<!-- =========================================
+     TEACHER QUESTION BANK
+========================================= -->
+
+<div class="teacher-question-bank">
+
+    <h3>📚 Teacher Question Bank</h3>
+
+    <p>
+        View and manage all questions created by teachers.
+    </p>
+
+    <button type="button" onclick="showTeacherQuestions()">
+        📖 View All Teacher Questions
+    </button>
+
+    <div id="teacherQuestionList" style="display: none;">
+        <!-- Teacher questions will appear here -->
+    </div>
+
+</div>
+
         Test your Class 9–10 chemistry knowledge!
     </p>
 
@@ -547,6 +586,7 @@
     }
 </script>
 
+<script src="Auth.js"></script>
 <script src="script.js"></script>
 
 </body>

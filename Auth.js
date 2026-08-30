@@ -1,4 +1,6 @@
+
 // ⚛️ ATOMIX MULTI-ACCOUNT LOGIN SYSTEM
+
 
 
 // ========================================
@@ -9,7 +11,6 @@ const signupForm = document.getElementById("signupForm");
 
 if (signupForm) {
 
-    
     signupForm.addEventListener("submit", function (event) {
 
         event.preventDefault();
@@ -28,7 +29,8 @@ if (signupForm) {
             .getElementById("confirmPassword")
             .value;
 
-        const message = document.getElementById("message");
+        const message =
+            document.getElementById("message");
 
 
         // Password length
@@ -53,13 +55,16 @@ if (signupForm) {
 
         // Get existing accounts
         let accounts =
-            JSON.parse(localStorage.getItem("atomixAccounts")) || [];
+            JSON.parse(
+                localStorage.getItem("atomixAccounts")
+            ) || [];
 
 
         // Check duplicate email
-        const accountExists = accounts.some(
-            user => user.email === email
-        );
+        const accountExists =
+            accounts.some(
+                user => user.email === email
+            );
 
 
         if (accountExists) {
@@ -71,18 +76,27 @@ if (signupForm) {
         }
 
 
+        // Determine role
+        const role =
+    email.endsWith("@teacher.com")
+        ? "teacher"
+        : "student";
+
         // Create new account
         const newUser = {
+
             email: email,
-            password: password
+            password: password,
+            role: role
+
         };
 
 
-        // Add account to the array
+        // Add account
         accounts.push(newUser);
 
 
-        // Save all accounts
+        // Save accounts
         localStorage.setItem(
             "atomixAccounts",
             JSON.stringify(accounts)
@@ -96,7 +110,8 @@ if (signupForm) {
         // Go to login
         setTimeout(function () {
 
-            window.location.href = "login.html";
+            window.location.href =
+                "login.html";
 
         }, 1200);
 
@@ -109,76 +124,109 @@ if (signupForm) {
 // LOGIN
 // ========================================
 
-const loginForm = document.getElementById("loginForm");
+const loginForm =
+    document.getElementById("loginForm");
 
 if (loginForm) {
 
-    loginForm.addEventListener("submit", function (event) {
+    loginForm.addEventListener(
+        "submit",
+        function (event) {
 
-        event.preventDefault();
-
-
-        const email = document
-            .getElementById("email")
-            .value
-            .trim()
-            .toLowerCase();
-
-        const password =
-            document.getElementById("password").value;
-
-        const message =
-            document.getElementById("message");
+            event.preventDefault();
 
 
-        // Get all accounts
-        const accounts =
-            JSON.parse(localStorage.getItem("atomixAccounts")) || [];
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+            const password =
+                document
+                    .getElementById("password")
+                    .value;
+
+            const message =
+                document.getElementById("message");
 
 
-        // Find matching account
-        const user = accounts.find(function (account) {
+            // Get all accounts
+            const accounts =
+                JSON.parse(
+                    localStorage.getItem("atomixAccounts")
+                ) || [];
 
-            return (
-                account.email === email &&
-                account.password === password
+
+            // Find matching account
+            const user =
+                accounts.find(function (account) {
+
+                    return (
+                        account.email === email &&
+                        account.password === password
+                    );
+
+                });
+
+
+            // No matching account
+            if (!user) {
+
+                message.textContent =
+                    "Incorrect email or password!";
+
+                return;
+            }
+
+
+            // Login successful
+            localStorage.setItem(
+                "atomixLoggedIn",
+                "true"
             );
 
-        });
+            localStorage.setItem(
+                "atomixCurrentUser",
+                user.email
+            );
 
+           const userRole =
+    user.email.endsWith("@teacher.com")
+        ? "teacher"
+        : "student";
 
-        // No matching account
-        if (!user) {
+localStorage.setItem(
+    "atomixUserRole",
+    userRole
+);
+
 
             message.textContent =
-                "Incorrect email or password!";
+                "Login successful! 🚀";
 
-            return;
+
+            // Return to Atomix
+           setTimeout(function () {
+
+    window.location.href = "index.html";
+
+}, 1000);
         }
+    );
+}
 
+// ========================================
+// LOGOUT
+// ========================================
 
-        // Login successful
-        localStorage.setItem(
-            "atomixLoggedIn",
-            "true"
-        );
+function logoutAtomix() {
 
-        localStorage.setItem(
-            "atomixCurrentUser",
-            user.email
-        );
+    localStorage.removeItem("atomixLoggedIn");
+    localStorage.removeItem("atomixCurrentUser");
+    localStorage.removeItem("atomixUserRole");
 
+    window.location.href = "Welcome.html";
 
-        message.textContent =
-            "Login successful! 🚀";
-
-
-        // Return to Atomix
-        setTimeout(function () {
-
-            window.location.href = "./";
-            
-        }, 1000);
-
-    });
 }
